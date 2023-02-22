@@ -10,6 +10,14 @@
       content="Aplicação para consulta de lançamentos de foguetes da SpaceX"
     />
 
+    <% if (process.env.NODE_ENV === 'production') { %>
+      <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-PZ9LNNG');</script>
+    <% } %>
+
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/favicons/192.png" />
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
 
@@ -20,6 +28,9 @@
     <title>Rocket Launch</title>
   </head>
   <body>
+    <% if (process.env.NODE_ENV === 'production') { %>
+      <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PZ9LNNG" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <% } %>
     <noscript>Você precisa ativar o JavaScript para executar essa aplicação.</noscript>
     <div id="root"></div>
   </body>
