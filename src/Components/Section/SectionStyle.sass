@@ -1,0 +1,27 @@
+@use './../../Themes/Default/Colors'
+
+.section
+    display: flex
+    gap: 5%
+    align-items: flex-start
+
+    &--center
+        align-items: center
+
+    &__title
+        position: sticky
+        top: 20%
+        text-align: right
+        width: 20%
+        font-size: 2em
+        color: Colors.$tertiaryContrast
+        text-transform: uppercase
+        text-align: right
+        text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.8)
+
+    &__content
+        display: flex
+        gap: 1.7em
+        flex-direction: column
+        width: 50%
+        padding-right: 20%

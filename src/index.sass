@@ -1,0 +1,16 @@
+@use './Themes/Default/Colors'
+@use './Themes/Default/Fonts'
+
+html
+  @include Fonts.default
+  font-size: 10px
+  background:
+    color: Colors.$tertiary
+    image: url('/Images/background-01.jpg')
+    attachment: fixed
+    position: center bottom
+    repeat: no-repeat
+    size: 100% auto
+
+body, h1, h2, p
+  margin: 0
