@@ -13,7 +13,7 @@ export default function LaunchItemComponent({ launch, mode }: LaunchProp)
     return (
         <article className={'launch-item--' + resolveSufixClassName(mode)}>
             <h2 className="launch-item__title">{launch.name}</h2>
-            <p className="launch-item__date">{launch.date.toLocaleDateString()}</p>
+            <p className="launch-item__date">{launch.date.toLocaleString('pt-BR')}</p>
         </article>
     )
 }
