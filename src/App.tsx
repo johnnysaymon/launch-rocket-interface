@@ -3,25 +3,27 @@ import Header from './Components/Header/HeaderComponent';
 import LaunchesResumeRepository from './Repositories/LaunchesResumeRepository';
 import LaunchesResume from './Models/LaunchesResume';
 import LaunchesResumeComponent from './Components/LaunchesResume/LaunchesResumeComponent';
+import LoadingComponent from './Components/Loading/LoadingComponent';
 import './App.sass';
 
 const launchesResumeRepository = new LaunchesResumeRepository()
 
 function App() 
 {
-  const emptyResume = new LaunchesResume(null, null, [], [])
-  const [launchesResume, setLaunchesResume] = useState(emptyResume)
-  const [withData, setWithData] = useState(false)
+  const [launchesResume, setLaunchesResume] = useState<LaunchesResume|null>(null)
 
   function update()
   {
+    if (launchesResume !== null) {
+      return
+    }
+
     launchesResumeRepository.get().then((resume) => {
       setLaunchesResume(resume)
-      setWithData(true)
     })
   }
 
-  useEffect(() => update(), [withData])
+  useEffect(() => update(), [launchesResume])
 
   return (
     <div className="app">
@@ -29,7 +31,10 @@ function App()
         <Header/>
       </div>
       <div className="app__content">
-        <LaunchesResumeComponent resume={launchesResume} />
+        { launchesResume 
+          ? (<LaunchesResumeComponent resume={launchesResume} />)
+          : (<LoadingComponent/>)
+        }
       </div>
     </div>
   );
