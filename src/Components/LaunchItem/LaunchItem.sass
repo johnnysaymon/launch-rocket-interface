@@ -1,3 +1,5 @@
+@use './../../Themes/Default/Colors'
+
 .launch-item
     &--lastest,
     &--oncoming,
@@ -9,12 +11,12 @@
     &--lastest,
     &--oncoming,
     &--past
-        background-color: #171717
-        color: #8F8F8F
+        background-color: Colors.$secondary
+        color: Colors.$secondaryContrast
 
     &--next
-        background-color: #2B2B2B
-        color: #ffffff
+        background-color: Colors.$primary
+        color: Colors.$primaryContrast
 
     &__title
         font-size: 3em
